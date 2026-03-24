@@ -1,0 +1,14 @@
+from sklearn.ensemble import RandomForestRegressor
+import xgboost as xgb
+
+def train_random_forest(X_train, y_train, random_state=42):
+    """Trains a Random Forest Regressor."""
+    model = RandomForestRegressor(n_estimators=100, max_depth=10, random_state=random_state)
+    model.fit(X_train, y_train)
+    return model
+
+def train_xgboost(X_train, y_train, random_state=42):
+    """Trains an XGBoost Regressor."""
+    model = xgb.XGBRegressor(n_estimators=100, max_depth=6, learning_rate=0.1, random_state=random_state)
+    model.fit(X_train, y_train)
+    return model
